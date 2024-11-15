@@ -1,0 +1,280 @@
+/* Global styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling on the body */
+}
+
+/* Header styling */
+.Homepageheader {
+  position: fixed;
+  top: 0  ;
+  left: 0;
+  right: 0;
+  background-color: #000;  /* Black background */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 10; /* Ensure it's always on top */
+  height: 100px;
+}
+
+/* Chat title on the left */
+.chat-title {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+/* Logout button */
+.logout-button {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+
+.logout-button:hover {
+  background-color: #d84315;
+}
+
+/* Main chat container */
+.chat-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-top: 140px;  /* Adjusted for fixed header */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Chat header inside the container */
+.chat-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.chat-header h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+  color: #000000;
+}
+
+/* Chat box styling */
+.chat-box {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow-y: auto; /* This will allow the inner chat box to scroll */
+  max-height: 100%; /* Ensure the height is constrained */
+}
+
+.message-list {
+  padding: 10px;
+  overflow-y: auto; /* Initially hidden scrollbar */
+  max-height: calc(100vh - 200px); /* Control the max height of the chat box */
+}
+
+/* Message bubble styling */
+.message-bubble {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;  /* Adjust width based on your design */
+}
+
+.message-icon {
+  margin-right: 10px; /* Space between the icon and the text */
+  font-size: 20px;
+}
+
+.message-content {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.message-bubble.user .message-content {
+  background-color: #cce5ff; /* Example color for user */
+  border-radius: 10px 10px 10px 0;
+  position: relative;
+  left: 0px;
+}
+
+.message-bubble.bot .message-content {
+  background-color: #d4edda; /* Example color for bot */
+  border-radius: 10px 10px 10px 0 ;
+}
+
+.message-bubble.user .message-icon {
+  color: #007bff; /* Color for the user's icon */
+}
+
+.message-bubble.bot .message-icon {
+  color: #28a745; /* Color for the bot's icon */
+}
+
+.user-message, .bot-message {
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-message {
+  background-color: #dddddd;
+  color: black;
+  align-self: flex-start;
+}
+
+.bot-message {
+  background-color: #e0f7fa;
+  color: #00796b;
+  align-self: flex-end;
+}
+
+/* Input area styling */
+.input-area {
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+/* Input field styling */
+.input-field {
+  width: 100%;
+  padding: 12px 40px 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 1em;
+  color: #333;
+  outline: none;
+  background-color: #f9f9f9;
+  font-weight: 500;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+}
+
+.input-field::placeholder {
+  color: #999;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Send button styling */
+.send-button {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  padding: 0;
+}
+
+.send-button i {
+  font-size: 1.2em;
+}
+
+/* Popup when logged out */
+.logout-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #ff5722;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.response-image {
+  max-width: 100%;
+  max-height: 300px; /* Limit height for better UI experience */
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-gallery img {
+  width: 100%;
+  height: auto;
+  max-width: 200px; /* Image size limit */
+}
+
+.blurred {
+  filter: blur(5px);  /* Adjust the blur intensity */
+}
+
+.chat-container.blurred {
+  filter: blur(5px);
+}
+
+.logout-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  z-index: 1000;
+}
+
+.logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.logout-button:hover {
+  background-color: #e04343;
+}
